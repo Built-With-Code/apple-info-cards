@@ -1,9 +1,25 @@
 "use client";
 
 import { AnimatePresence, HTMLMotionProps, motion } from "framer-motion";
-import { HTMLAttributes, useState } from "react";
+import { useState } from "react";
 
-const InfoCard = () => {
+const ANIMATION_DELAY = 0.5;
+
+const InfoCard = ({
+  tintColor = "#000000",
+  title,
+  description = "",
+  detailContent = "",
+  hasDetail = true,
+  children,
+  ...props
+}: {
+  tintColor?: string;
+  title: string;
+  description?: string;
+  detailContent?: string;
+  hasDetail?: boolean;
+} & HTMLMotionProps<"div">) => {
   const [showDetail, setShowDetail] = useState(false);
 
   return (
@@ -11,40 +27,46 @@ const InfoCard = () => {
       className="relative h-[800px] bg-white rounded-3xl p-8 overflow-hidden"
       initial={false}
       animate={showDetail ? "detail" : "main"}
+      {...props}
     >
       <motion.h2
         className="relative text-xl font-medium z-50"
         variants={{
-          main: { color: "rgb(20,184,166)", transition: { delay: 0.5 } },
+          main: { color: tintColor, transition: { delay: ANIMATION_DELAY } },
           detail: { color: "rgb(255,255,255)" },
         }}
       >
-        All your credentials in one place
+        {title}
       </motion.h2>
-      <p className="text-lg mt-2 font-medium">
-        From passwords to verifications and security alerts, find them all
-        securely stored in the Passwords app.
-      </p>
-      <PlusButton onClick={() => setShowDetail(!showDetail)} />
+      <p className="text-lg mt-2 font-medium">{description}</p>
+      <>{children}</>
+      {hasDetail && (
+        <PlusButton
+          tintColor={tintColor}
+          onClick={() => setShowDetail(!showDetail)}
+        />
+      )}
       <AnimatePresence>
         {showDetail && (
           <motion.div
-            className="absolute inset-0 bg-teal-500 flex flex-col justify-center p-8"
+            className="absolute inset-0 flex flex-col justify-center p-8"
+            style={{ backgroundColor: tintColor }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0, transition: { delay: 0.5 } }}
+            exit={{ opacity: 0, transition: { delay: ANIMATION_DELAY } }}
           >
             <motion.p
               className="text-white font-medium text-lg"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1, transition: { delay: 0.5 } }}
-              exit={{ opacity: 0 }}
+              initial={{ y: -100, opacity: 0 }}
+              animate={{
+                y: 0,
+                opacity: 1,
+                transition: { delay: ANIMATION_DELAY, bounce: 0 },
+              }}
+              exit={{ y: -100, opacity: 0 }}
+              transition={{ bounce: 0 }}
             >
-              Backed by secure end-to-end encryption and seamless syncing, the
-              Passwords app safely stores all your credentials. It lets you
-              filter and sort accounts by recently created, credential type, or
-              whether an account is in a shared group, to quickly find accounts
-              you're looking for.
+              {detailContent}
             </motion.p>
           </motion.div>
         )}
@@ -53,7 +75,10 @@ const InfoCard = () => {
   );
 };
 
-const PlusButton = ({ ...props }: HTMLMotionProps<"button">) => {
+const PlusButton = ({
+  tintColor,
+  ...props
+}: { tintColor: string } & HTMLMotionProps<"button">) => {
   return (
     <motion.button
       className="absolute right-8 bottom-8 size-10 rounded-full cursor-pointer flex justify-center items-center z-50"
@@ -66,7 +91,7 @@ const PlusButton = ({ ...props }: HTMLMotionProps<"button">) => {
         detail: {
           rotate: 45,
           backgroundColor: "rgb(255, 255, 255)",
-          stroke: "rgb(20,184,166)",
+          stroke: tintColor,
         },
       }}
       transition={{
