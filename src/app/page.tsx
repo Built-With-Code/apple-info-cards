@@ -1,24 +1,22 @@
 import InfoCard from "@/components/InfoCard";
+import { AllSectionData } from "@/utils/content-data";
 import Image from "next/image";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-neutral-100 p-10">
+      {/* Safari */}
       <section>
-        <h1 className="text-teal-500 font-semibold text-[3.5rem] tracking-tight px-8 my-10">
-          Passwords app
+        <h1
+          className="font-semibold text-[3.5rem] tracking-tight px-8 my-10"
+          style={{ color: AllSectionData["safari"].tintColor }}
+        >
+          {AllSectionData["safari"].title}
         </h1>
         <div className="grid grid-cols-2 gap-8 mt-6">
           <InfoCard
-            tintColor="#14b8a6"
-            title="All your credentials in one place"
-            description="From passwords to verifications and security alerts, find them all
-        securely stored in the Passwords app."
-            detailContent="Backed by secure end-to-end encryption and seamless syncing, the
-              Passwords app safely stores all your credentials. It lets you
-              filter and sort accounts by recently created, credential type, or
-              whether an account is in a shared group, to quickly find accounts
-              you're looking for."
+            tintColor={AllSectionData["safari"].tintColor}
+            {...AllSectionData["safari"].cards["highlights"]}
           >
             <div className="relative h-full w-4/5 mx-auto mt-20">
               <Image
@@ -31,14 +29,84 @@ export default function Home() {
             </div>
           </InfoCard>
           <InfoCard
-            tintColor="#14b8a6"
-            title="Securely synced across devices and apps"
-            detailContent="Access the Passwords app on iPhone, iPad, Mac, and Apple Vision Pro, and on Windows with the iCloud for Windows app. All the passwords sync securely across your devices, and if you use AutoFill, your passwords will automatically be added to the Passwords app."
+            tintColor={AllSectionData["safari"].tintColor}
+            {...AllSectionData["safari"].cards["reader"]}
           >
-            <div className="w-full mt-[50%]">
+            <div className="relative h-full w-4/5 mx-auto mt-20">
+              <Image
+                src="/iphone-mock.png"
+                alt="Passwords app"
+                fill
+                sizes="50vh"
+                className="object-cover object-top"
+              />
+            </div>
+          </InfoCard>
+        </div>
+      </section>
+      {/* Passwords */}
+      <section>
+        <h1
+          className="font-semibold text-[3.5rem] tracking-tight px-8 my-10"
+          style={{ color: AllSectionData["passwords"].tintColor }}
+        >
+          {AllSectionData["passwords"].title}
+        </h1>
+        <div className="grid grid-cols-2 gap-8 mt-6">
+          <InfoCard
+            tintColor={AllSectionData["passwords"].tintColor}
+            {...AllSectionData["passwords"].cards["app"]}
+          >
+            <div className="relative h-full w-4/5 mx-auto mt-20">
+              <Image
+                src="/iphone-mock.png"
+                alt="Passwords app"
+                fill
+                sizes="50vh"
+                className="object-cover object-top"
+              />
+            </div>
+          </InfoCard>
+          <InfoCard
+            tintColor={AllSectionData["passwords"].tintColor}
+            {...AllSectionData["passwords"].cards["sync"]}
+          >
+            <div className="w-full flex-1 flex flex-col justify-center">
               <p className="text-[3.5rem] font-medium leading-tight tracking-tight">
                 Works across iPhone, iPad, Mac, Apple Vision Pro, and Windows.
               </p>
+            </div>
+          </InfoCard>
+        </div>
+      </section>
+      {/* Wallet */}
+      <section>
+        <h1
+          className="font-semibold text-[3.5rem] tracking-tight px-8 my-10"
+          style={{ color: AllSectionData["wallet"].tintColor }}
+        >
+          {AllSectionData["wallet"].title}
+        </h1>
+        <div className="grid grid-cols-1 gap-8 mt-6">
+          <InfoCard
+            tintColor={AllSectionData["wallet"].tintColor}
+            {...AllSectionData["wallet"].cards["tap"]}
+          >
+            <div className="relative flex-1 w-full mt-20 flex justify-center items-center gap-8">
+              <div className="max-w-[50%]">
+                <p className="text-[3.5rem] tracking-tighter font-medium leading-tight max-w-[12ch]">
+                  Bring iPhone devices together to pay privately.
+                </p>
+              </div>
+              <div className="relative h-full w-1/2">
+                <Image
+                  src="/iphone-mock.png"
+                  alt="Passwords app"
+                  fill
+                  sizes="50vh"
+                  className="object-cover object-top"
+                />
+              </div>
             </div>
           </InfoCard>
         </div>

@@ -24,7 +24,7 @@ const InfoCard = ({
 
   return (
     <motion.div
-      className="relative h-[800px] bg-white rounded-3xl p-8 overflow-hidden"
+      className="relative h-[800px] bg-white rounded-3xl px-8 pt-8 overflow-hidden flex flex-col"
       initial={false}
       animate={showDetail ? "detail" : "main"}
       {...props}
@@ -56,7 +56,7 @@ const InfoCard = ({
             exit={{ opacity: 0, transition: { delay: ANIMATION_DELAY } }}
           >
             <motion.p
-              className="text-white font-medium text-lg"
+              className="text-white font-medium text-lg max-w-[80ch] mx-auto"
               initial={{ y: -100, opacity: 0 }}
               animate={{
                 y: 0,
