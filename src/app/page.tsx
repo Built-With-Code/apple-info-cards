@@ -7,10 +7,7 @@ export default function Home() {
     <main className="min-h-screen bg-neutral-100 p-10">
       {/* Safari */}
       <section>
-        <h1
-          className="font-semibold text-[3.5rem] tracking-tight px-8 my-10"
-          style={{ color: AllSectionData["safari"].tintColor }}
-        >
+        <h1 style={{ color: AllSectionData["safari"].tintColor }}>
           {AllSectionData["safari"].title}
         </h1>
         <div className="grid grid-cols-2 gap-8 mt-6">
@@ -18,13 +15,13 @@ export default function Home() {
             tintColor={AllSectionData["safari"].tintColor}
             {...AllSectionData["safari"].cards["highlights"]}
           >
-            <div className="relative h-full w-4/5 mx-auto mt-20">
+            <div className="relative size-full max-w-[400px] mx-auto mt-20">
               <Image
                 src="/iphone-mock.png"
                 alt="Passwords app"
                 fill
                 sizes="50vh"
-                className="object-cover object-top"
+                className="object-contain lg:object-cover object-top"
               />
             </div>
           </InfoCard>
@@ -32,13 +29,13 @@ export default function Home() {
             tintColor={AllSectionData["safari"].tintColor}
             {...AllSectionData["safari"].cards["reader"]}
           >
-            <div className="relative h-full w-4/5 mx-auto mt-20">
+            <div className="relative size-full max-w-[400px] mx-auto mt-20">
               <Image
                 src="/iphone-mock.png"
                 alt="Passwords app"
                 fill
                 sizes="50vh"
-                className="object-cover object-top"
+                className="object-contain lg:object-cover object-top"
               />
             </div>
           </InfoCard>
@@ -46,10 +43,7 @@ export default function Home() {
       </section>
       {/* Passwords */}
       <section>
-        <h1
-          className="font-semibold text-[3.5rem] tracking-tight px-8 my-10"
-          style={{ color: AllSectionData["passwords"].tintColor }}
-        >
+        <h1 style={{ color: AllSectionData["passwords"].tintColor }}>
           {AllSectionData["passwords"].title}
         </h1>
         <div className="grid grid-cols-2 gap-8 mt-6">
@@ -57,13 +51,13 @@ export default function Home() {
             tintColor={AllSectionData["passwords"].tintColor}
             {...AllSectionData["passwords"].cards["app"]}
           >
-            <div className="relative h-full w-4/5 mx-auto mt-20">
+            <div className="relative size-full max-w-[400px] mx-auto mt-20">
               <Image
                 src="/iphone-mock.png"
                 alt="Passwords app"
                 fill
                 sizes="50vh"
-                className="object-cover object-top"
+                className="object-contain lg:object-cover object-top"
               />
             </div>
           </InfoCard>
@@ -81,10 +75,7 @@ export default function Home() {
       </section>
       {/* Wallet */}
       <section>
-        <h1
-          className="font-semibold text-[3.5rem] tracking-tight px-8 my-10"
-          style={{ color: AllSectionData["wallet"].tintColor }}
-        >
+        <h1 style={{ color: AllSectionData["wallet"].tintColor }}>
           {AllSectionData["wallet"].title}
         </h1>
         <div className="grid grid-cols-1 gap-8 mt-6">
@@ -98,13 +89,13 @@ export default function Home() {
                   Bring iPhone devices together to pay privately.
                 </p>
               </div>
-              <div className="relative h-full w-1/2">
+              <div className="relative aspect-[9/16] w-1/2 max-w-[400px]">
                 <Image
                   src="/iphone-mock.png"
                   alt="Passwords app"
                   fill
                   sizes="50vh"
-                  className="object-cover object-top"
+                  className="object-contain lg:object-cover object-top"
                 />
               </div>
             </div>

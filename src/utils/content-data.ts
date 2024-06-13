@@ -2,7 +2,6 @@ type CardData = {
   title: string;
   description?: string;
   detailContent?: string;
-  hasDetail?: boolean;
 };
 
 type SectionData = {
@@ -40,13 +39,11 @@ const SafariSectionData: SectionData = {
       title: "Introducing Highlights",
       description:
         "Safari will automatically detect relevant information on a page and highlight it as you browse. Highlights display helpful information like directions and quick links to learn more about people, music, movies, and TV shows.",
-      hasDetail: false,
     },
     reader: {
       title: "A smarter, redesigned Reader",
       description:
         "With a table of contents and high-level summary, get the gist of an article before reading on.",
-      hasDetail: false,
     },
   },
 };
