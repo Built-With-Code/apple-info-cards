@@ -22,10 +22,8 @@ const InfoCard = ({
   const hasDetail = detailContent.length > 0;
 
   const animationVariants = {
-    title: {
-      main: { color: tintColor, transition: { delay: ANIMATION_DELAY } },
-      detail: { color: "rgb(255,255,255)" },
-    },
+    main: { color: tintColor, transition: { delay: ANIMATION_DELAY } },
+    detail: { color: "rgb(255,255,255)" },
   };
 
   return (
@@ -37,7 +35,7 @@ const InfoCard = ({
     >
       <motion.h2
         className="relative text-xl font-medium z-50"
-        variants={animationVariants["title"]}
+        variants={animationVariants}
       >
         {title}
       </motion.h2>
